@@ -39,12 +39,12 @@ class HomPage extends StatefulWidget {
 }
 
 class _HomPageState extends State<HomPage> {
-  String ip = '43.138.57.74',
+  String ip = 'szxdt.tpddns.cn',
       port = '1433',
       username = 'sa',
-      password = 'Kk123456',
-      databaseName = 'master',
-      readQuery = 'select * from Image_List',
+      password = 'szxdt@123456',
+      databaseName = 'SaoMashuJu',
+      readQuery = 'select * from SaoMaRuKu',
       writeQuery = '';
   final _sqlConnection = MssqlConnection.getInstance();
   final pageController = PageController();

@@ -107,11 +107,17 @@ class ResultSetSerializer constructor (private val chunkSize: Int) : JsonSeriali
                             }
                         }
 
-                        Types.DATE -> provider.defaultSerializeDateValue(rs.getDate(i + 1), gen)
-                        Types.TIMESTAMP -> provider.defaultSerializeDateValue(
-                            rs.getTimestamp(i + 1),
-                            gen
-                        )
+                        Types.DATE -> {
+                            provider.defaultSerializeDateValue(rs.getDate(i + 1), gen)
+                        }
+                        Types.TIMESTAMP -> {
+                            val timestamp = rs.getTimestamp(i + 1)
+                            if (rs.wasNull()) {
+                                gen.writeNull()
+                            } else {
+                                provider.defaultSerializeDateValue(timestamp, gen)
+                            }
+                        }
 
                         Types.BLOB -> {
                             val blob = rs.getBlob(i+1)
