@@ -123,7 +123,7 @@ class ResultSetSerializer constructor (private val chunkSize: Int) : JsonSeriali
                             val blob = rs.getBlob(i+1)
                             val byteArray = blob.getBytes(1, blob.length().toInt())
                             val base64String = android.util.Base64.encodeToString(byteArray, android.util.Base64.DEFAULT)
-                            Log.i("Allen",base64String);
+//                            Log.i("Allen",base64String);
                             gen.writeString(base64String)
 //                            blob.free()
                         }
